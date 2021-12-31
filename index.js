@@ -8,7 +8,7 @@ require('dotenv').config()
 
 
 const app = express()
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 5000;
 
 // middleware
 app.use(cors());
@@ -72,7 +72,7 @@ async function run(){
   })
 
 
-    // POST order
+    // POST booking
    app.post("/booking", async(req, res) => {
      const query = req.body;
      const result = await bookingCollection.insertOne(req.body);
@@ -81,7 +81,7 @@ async function run(){
    })
 
 
-   // All Orders
+   // All booking
    app.get("/booking", async(req, res) => {
     const query = bookingCollection.find({});
     const result = await query.toArray();
@@ -116,7 +116,7 @@ async function run(){
 
        //  Creating admin API
 
-       
+
        app.put("/users/admin", async (req, res) => {
         const user = req.body;
         // console.log(user);
